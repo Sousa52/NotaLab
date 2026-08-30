@@ -78,6 +78,16 @@ export const ptPT = {
     announceSkip: (mode: string) => `Sessão saltada. A começar: ${mode}.`,
     announceAutoAdvance: (mode: string) => `Sessão terminada. A começar: ${mode}.`,
   },
+  unitConverter: {
+    categoryLabel: 'Categoria',
+    fromUnitLabel: 'De',
+    toUnitLabel: 'Para',
+    valueLabel: 'Valor',
+    swapLabel: 'Trocar unidades',
+    invalidValue: 'Introduz um número válido.',
+    howItWorks:
+      'A conversão é feita localmente, no teu navegador — não precisas de conta nem de ligação à internet. As unidades de comprimento, peso, volume e área usam um fator fixo em relação a uma unidade base; a temperatura usa fórmulas próprias, porque Celsius, Fahrenheit e Kelvin não estão relacionados por um simples fator.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT
