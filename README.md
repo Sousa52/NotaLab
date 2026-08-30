@@ -71,4 +71,4 @@ npm run preview
 
 ## Licença
 
-Ver [LICENSE](./LICENSE).
+Distribuído sob a [licença MIT](./LICENSE).
