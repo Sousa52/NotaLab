@@ -71,4 +71,4 @@ npm run preview
 
 ## Licença
 
-Distribuído sob a [licença MIT](./LICENSE).
+Todos os direitos reservados. Ver [LICENSE](./LICENSE) para os termos completos — o código está disponível publicamente para consulta e demonstração, mas não é open-source: cópia, redistribuição, hospedagem ou modificação sem autorização explícita não são permitidas.
