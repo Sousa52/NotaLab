@@ -52,6 +52,32 @@ export const ptPT = {
     howItWorks:
       'A contagem é feita localmente, no teu navegador — o texto nunca é enviado para um servidor. As palavras são sequências separadas por espaços; as frases terminam em ponto, interrogação ou exclamação; os parágrafos são separados por uma linha em branco.',
   },
+  pomodoro: {
+    modeFocus: 'Foco',
+    modeShortBreak: 'Pausa curta',
+    modeLongBreak: 'Pausa longa',
+    sessionLabel: (current: number, total: number) => `Sessão ${current} de ${total}`,
+    start: 'Iniciar',
+    resume: 'Retomar',
+    pause: 'Pausar',
+    reset: 'Reiniciar',
+    skip: 'Saltar sessão',
+    progressLabel: 'Progresso da sessão atual',
+    settingsToggle: 'Definições',
+    focusDuration: 'Duração do foco (min)',
+    shortBreakDuration: 'Duração da pausa curta (min)',
+    longBreakDuration: 'Duração da pausa longa (min)',
+    sessionsBeforeLongBreak: 'Sessões antes da pausa longa',
+    settingsRunningHint: 'O temporizador está em curso — as novas durações só se aplicam a partir da próxima sessão.',
+    howItWorks:
+      'Cada ciclo alterna sessões de foco com pausas curtas. Depois do número configurado de sessões de foco, segue-se uma pausa longa e um novo ciclo começa. O temporizador usa a hora real do sistema, por isso mantém-se certo mesmo que mudes de separador ou o computador fique ocupado.',
+    announceStart: (mode: string) => `${mode} iniciado.`,
+    announceResume: (mode: string) => `${mode} retomado.`,
+    announcePause: 'Temporizador em pausa.',
+    announceReset: 'Temporizador reiniciado.',
+    announceSkip: (mode: string) => `Sessão saltada. A começar: ${mode}.`,
+    announceAutoAdvance: (mode: string) => `Sessão terminada. A começar: ${mode}.`,
+  },
 } as const
 
 export type TranslationDict = typeof ptPT

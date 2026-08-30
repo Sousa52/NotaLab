@@ -2,7 +2,7 @@
 
 Ferramentas simples para estudantes — calculadoras académicas, utilitários de estudo e conversores de ficheiros, gratuitos e sem necessidade de conta.
 
-> **Estado atual:** arquitetura, design system e homepage implementados (Fases 1–3). As primeiras ferramentas académicas (Fase 5) ainda não foram adicionadas.
+> **Estado atual:** arquitetura, design system, homepage e diretório de ferramentas implementados. Ferramentas disponíveis: calculadora de média ponderada, "que nota preciso?", calculadora de média da licenciatura, contador de palavras e caracteres, e temporizador Pomodoro.
 
 ## Stack
 
@@ -38,6 +38,14 @@ src/
 ```bash
 npm install
 npm run dev
+```
+
+## Testes
+
+A lógica de cálculo/estado de cada ferramenta é independente da UI e testada com Vitest:
+
+```bash
+npm test
 ```
 
 ## Build de produção
