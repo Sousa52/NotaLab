@@ -37,6 +37,21 @@ export const ptPT = {
     madeFor: 'Feito para estudantes.',
     privacyNote: 'Sem contas. Sem anúncios intrusivos. Ficheiros processados localmente sempre que possível.',
   },
+  textCounter: {
+    textareaLabel: 'Texto',
+    textareaPlaceholder: 'Cola ou escreve o teu texto aqui...',
+    emptyState: 'Escreve ou cola texto acima para veres as estatísticas.',
+    copy: 'Copiar texto',
+    copied: 'Copiado!',
+    words: 'Palavras',
+    characters: 'Caracteres',
+    charactersNoSpaces: 'Caracteres (sem espaços)',
+    sentences: 'Frases',
+    paragraphs: 'Parágrafos',
+    lines: 'Linhas',
+    howItWorks:
+      'A contagem é feita localmente, no teu navegador — o texto nunca é enviado para um servidor. As palavras são sequências separadas por espaços; as frases terminam em ponto, interrogação ou exclamação; os parágrafos são separados por uma linha em branco.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT
