@@ -88,6 +88,18 @@ export const ptPT = {
     howItWorks:
       'A conversão é feita localmente, no teu navegador — não precisas de conta nem de ligação à internet. As unidades de comprimento, peso, volume e área usam um fator fixo em relação a uma unidade base; a temperatura usa fórmulas próprias, porque Celsius, Fahrenheit e Kelvin não estão relacionados por um simples fator.',
   },
+  gradeConverter: {
+    fromScaleLabel: 'De',
+    toScaleLabel: 'Para',
+    valueLabel: 'Valor',
+    swapLabel: 'Trocar escalas',
+    invalidValue: 'Introduz um número válido.',
+    outOfRange: (min: number, max: number) => `O valor tem de estar entre ${min} e ${max}.`,
+    disclaimer:
+      'Esta conversão é uma aproximação matemática proporcional (20 valores = 100% = 4.0 de GPA), não uma equivalência oficial. Cada instituição pode ter a sua própria fórmula de conversão — consulta sempre os serviços académicos antes de usar este valor formalmente.',
+    howItWorks:
+      'A conversão trata a nota máxima de cada escala como equivalente (20 valores = 100% = 4.0 de GPA) e escala o valor proporcionalmente entre as duas escalas escolhidas. Tudo calculado localmente, no teu navegador, sem conta nem ligação à internet.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT

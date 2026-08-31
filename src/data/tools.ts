@@ -5,6 +5,7 @@ import { degreeAverageTool } from '../tools/academic/degree-average'
 import { wordCounterTool } from '../tools/text/word-counter'
 import { pomodoroTool } from '../tools/study/pomodoro'
 import { unitConverterTool } from '../tools/calculators/unit-converter'
+import { gradeConverterTool } from '../tools/calculators/grade-converter'
 
 /**
  * Central registry of every tool available on the platform.
@@ -18,6 +19,7 @@ export const tools: ToolDefinition[] = [
   wordCounterTool,
   pomodoroTool,
   unitConverterTool,
+  gradeConverterTool,
 ]
 
 export function getToolBySlug(slug: string) {
