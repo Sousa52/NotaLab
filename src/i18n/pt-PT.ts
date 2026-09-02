@@ -100,6 +100,29 @@ export const ptPT = {
     howItWorks:
       'A conversão trata a nota máxima de cada escala como equivalente (20 valores = 100% = 4.0 de GPA) e escala o valor proporcionalmente entre as duas escalas escolhidas. Tudo calculado localmente, no teu navegador, sem conta nem ligação à internet.',
   },
+  studyPlanner: {
+    hoursLabel: 'Horas disponíveis',
+    minutesLabel: 'Minutos adicionais',
+    subjectLegend: (n: number) => `Assunto ${n}`,
+    subjectNameLabel: 'Nome',
+    subjectNamePlaceholder: 'Ex.: Matemática',
+    removeSubject: (n: number) => `Remover assunto ${n}`,
+    addSubject: 'Adicionar assunto',
+    generate: 'Gerar plano',
+    invalidNumber: 'Introduz um número válido (0 ou mais).',
+    invalidDuration: 'A duração total tem de ser maior que zero.',
+    noSubjects: 'Adiciona pelo menos um assunto.',
+    emptyState: 'Preenche o tempo disponível e os assuntos, depois clica em «Gerar plano».',
+    totalLabel: 'Tempo total:',
+    subjectCountLabel: 'Assuntos:',
+    breakSuggestion: (count: number, minutesEach: number) =>
+      count === 1
+        ? `Sugestão: 1 pausa de ${minutesEach} minutos.`
+        : `Sugestão: ${count} pausas de ${minutesEach} minutos cada.`,
+    noBreakNeeded: 'Sessão curta — não sugerimos nenhuma pausa.',
+    howItWorks:
+      'O tempo disponível é dividido igualmente por todos os assuntos (sem prioridades, por agora). A sugestão de pausas é apenas indicativa e não reduz o tempo de estudo que indicaste — tudo calculado localmente, no teu navegador.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT
