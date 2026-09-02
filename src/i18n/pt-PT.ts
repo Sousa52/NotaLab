@@ -123,6 +123,21 @@ export const ptPT = {
     howItWorks:
       'O tempo disponível é dividido igualmente por todos os assuntos (sem prioridades, por agora). A sugestão de pausas é apenas indicativa e não reduz o tempo de estudo que indicaste — tudo calculado localmente, no teu navegador.',
   },
+  examCountdown: {
+    nameLabel: 'Nome do exame ou evento',
+    namePlaceholder: 'Ex.: Exame de Cálculo',
+    dateLabel: 'Data',
+    timeLabel: 'Hora (opcional)',
+    timeHint: 'Se não indicares uma hora, assumimos o fim do dia selecionado (23:59).',
+    invalidDate: 'Introduz uma data válida.',
+    emptyState: 'Indica uma data para veres a contagem decrescente.',
+    todayBadge: 'É hoje',
+    daysLabel: 'Dias',
+    hoursLabel: 'Horas',
+    minutesLabel: 'Minutos',
+    howItWorks:
+      'A contagem usa a hora do teu dispositivo e atualiza-se automaticamente enquanto a página estiver aberta, incluindo quando voltas a esta janela depois de estares noutro separador. A data e a hora são sempre interpretadas no teu fuso horário local — nada é enviado para um servidor.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT

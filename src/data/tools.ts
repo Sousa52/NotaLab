@@ -7,6 +7,7 @@ import { pomodoroTool } from '../tools/study/pomodoro'
 import { unitConverterTool } from '../tools/calculators/unit-converter'
 import { gradeConverterTool } from '../tools/calculators/grade-converter'
 import { studySessionPlannerTool } from '../tools/study/study-session-planner'
+import { examCountdownTool } from '../tools/study/exam-countdown'
 
 /**
  * Central registry of every tool available on the platform.
@@ -22,6 +23,7 @@ export const tools: ToolDefinition[] = [
   unitConverterTool,
   gradeConverterTool,
   studySessionPlannerTool,
+  examCountdownTool,
 ]
 
 export function getToolBySlug(slug: string) {
