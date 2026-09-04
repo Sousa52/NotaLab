@@ -185,6 +185,19 @@ export const ptPT = {
     howItWorks:
       'A referência é gerada localmente, no teu navegador, a partir da informação que preencheste — nada é enviado para um servidor. Para fontes mais complexas ou situações específicas, confirma sempre o formato exigido pela tua instituição.',
   },
+  scientificCalculator: {
+    expressionLabel: 'Expressão',
+    expressionPlaceholder: 'Ex.: 2 + 2 × 5',
+    clearAll: 'Limpar tudo',
+    backspace: 'Apagar último carácter',
+    sqrtLabel: 'Raiz quadrada',
+    squareLabel: 'Elevado ao quadrado',
+    powerLabel: 'Elevado a',
+    emptyState: 'Escreve ou constrói uma expressão e prime «igual» para calcular.',
+    degreesNote: 'As funções sin, cos e tan usam graus, não radianos.',
+    howItWorks:
+      'A expressão é interpretada localmente, no teu navegador, por um analisador próprio que respeita a precedência matemática habitual — nunca usa eval() nem executa código arbitrário. A percentagem funciona como um valor decimal (ex.: 50% = 0,5); não são suportadas multiplicações implícitas, por isso escreve sempre o operador, por exemplo 2 × (3 + 4) em vez de 2(3 + 4).',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT
