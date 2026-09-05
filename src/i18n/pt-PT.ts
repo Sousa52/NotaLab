@@ -198,6 +198,25 @@ export const ptPT = {
     howItWorks:
       'A expressão é interpretada localmente, no teu navegador, por um analisador próprio que respeita a precedência matemática habitual — nunca usa eval() nem executa código arbitrário. A percentagem funciona como um valor decimal (ex.: 50% = 0,5); não são suportadas multiplicações implícitas, por isso escreve sempre o operador, por exemplo 2 × (3 + 4) em vez de 2(3 + 4).',
   },
+  percentageCalculator: {
+    operationLabel: 'Operação',
+    opPercentOf: 'Percentagem de um número',
+    opWhatPercentage: 'Que percentagem é um número de outro?',
+    opIncrease: 'Aumento percentual',
+    opDecrease: 'Diminuição percentual',
+    opDifference: 'Diferença percentual',
+    percentageLabel: 'Percentagem',
+    valueLabel: 'Número',
+    partLabel: 'Parte',
+    totalLabel: 'Total',
+    originalLabel: 'Valor original',
+    firstValueLabel: 'Primeiro valor',
+    secondValueLabel: 'Segundo valor',
+    invalidValue: 'Introduz um número válido.',
+    emptyState: 'Preenche os campos para veres o resultado.',
+    howItWorks:
+      'Escolhe a operação e preenche os dois valores — o resultado atualiza-se automaticamente. Tudo calculado localmente, no teu navegador. A diferença percentual usa a fórmula |A − B| / ((A + B) / 2) × 100 e assume valores não negativos, a convenção habitual para esta operação.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT
