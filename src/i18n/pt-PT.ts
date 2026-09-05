@@ -217,6 +217,21 @@ export const ptPT = {
     howItWorks:
       'Escolhe a operação e preenche os dois valores — o resultado atualiza-se automaticamente. Tudo calculado localmente, no teu navegador. A diferença percentual usa a fórmula |A − B| / ((A + B) / 2) × 100 e assume valores não negativos, a convenção habitual para esta operação.',
   },
+  interestCalculator: {
+    modeLabel: 'Modo',
+    modeSimple: 'Juros simples',
+    modeCompound: 'Juros compostos',
+    capitalLabel: 'Capital inicial (€)',
+    rateLabel: 'Taxa de juro (%)',
+    periodsLabel: 'Número de períodos',
+    periodsHint: 'A taxa e o número de períodos têm de se referir à mesma unidade de tempo. Ex.: 5% por ano durante 10 anos.',
+    invalidValue: 'Introduz um número válido.',
+    emptyState: 'Preenche os campos para veres o resultado.',
+    interestLabel: 'Juros',
+    amountLabel: 'Montante final',
+    howItWorks:
+      'Juros simples: J = C × i × t; juros compostos: M = C × (1 + i)^t, com J = M − C. A taxa introduzida e o número de períodos têm sempre de se referir à mesma unidade de tempo (por exemplo, 5% ao ano durante 10 anos) — a calculadora não converte entre unidades de tempo. Tudo calculado localmente, no teu navegador.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT

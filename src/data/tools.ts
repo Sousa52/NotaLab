@@ -11,6 +11,7 @@ import { examCountdownTool } from '../tools/study/exam-countdown'
 import { apaReferenceGeneratorTool } from '../tools/text/apa-reference-generator'
 import { scientificCalculatorTool } from '../tools/calculators/scientific-calculator'
 import { percentageCalculatorTool } from '../tools/calculators/percentage-calculator'
+import { interestCalculatorTool } from '../tools/calculators/interest-calculator'
 
 /**
  * Central registry of every tool available on the platform.
@@ -30,6 +31,7 @@ export const tools: ToolDefinition[] = [
   apaReferenceGeneratorTool,
   scientificCalculatorTool,
   percentageCalculatorTool,
+  interestCalculatorTool,
 ]
 
 export function getToolBySlug(slug: string) {
