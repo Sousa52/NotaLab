@@ -232,6 +232,21 @@ export const ptPT = {
     howItWorks:
       'Juros simples: J = C × i × t; juros compostos: M = C × (1 + i)^t, com J = M − C. A taxa introduzida e o número de períodos têm sempre de se referir à mesma unidade de tempo (por exemplo, 5% ao ano durante 10 anos) — a calculadora não converte entre unidades de tempo. Tudo calculado localmente, no teu navegador.',
   },
+  ruleOfThree: {
+    modeLabel: 'Proporcionalidade',
+    modeDirect: 'Proporcionalidade direta',
+    modeInverse: 'Proporcionalidade inversa',
+    aLabel: 'Valor A',
+    bLabel: 'Valor B',
+    cLabel: 'Valor C',
+    invalidValue: 'Introduz um número válido.',
+    emptyState: 'Preenche os três valores para veres o resultado.',
+    resultLabel: 'X',
+    formulaDirect: 'X = (B × C) ÷ A',
+    formulaInverse: 'X = (A × B) ÷ C',
+    howItWorks:
+      'Na proporcionalidade direta, quando A aumenta, X aumenta na mesma proporção (ex.: 2 kg → 6 €, logo 5 kg → 15 €). Na proporcionalidade inversa, quando A aumenta, X diminui (ex.: 2 trabalhadores → 10 dias, logo 5 trabalhadores → 4 dias). A calculadora é genérica — usa-a para preços, quantidades, distâncias, receitas ou qualquer relação proporcional. Tudo calculado localmente, no teu navegador.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT

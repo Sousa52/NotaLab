@@ -12,6 +12,7 @@ import { apaReferenceGeneratorTool } from '../tools/text/apa-reference-generator
 import { scientificCalculatorTool } from '../tools/calculators/scientific-calculator'
 import { percentageCalculatorTool } from '../tools/calculators/percentage-calculator'
 import { interestCalculatorTool } from '../tools/calculators/interest-calculator'
+import { ruleOfThreeTool } from '../tools/calculators/rule-of-three'
 
 /**
  * Central registry of every tool available on the platform.
@@ -32,6 +33,7 @@ export const tools: ToolDefinition[] = [
   scientificCalculatorTool,
   percentageCalculatorTool,
   interestCalculatorTool,
+  ruleOfThreeTool,
 ]
 
 export function getToolBySlug(slug: string) {
