@@ -13,6 +13,7 @@ import { scientificCalculatorTool } from '../tools/calculators/scientific-calcul
 import { percentageCalculatorTool } from '../tools/calculators/percentage-calculator'
 import { interestCalculatorTool } from '../tools/calculators/interest-calculator'
 import { ruleOfThreeTool } from '../tools/calculators/rule-of-three'
+import { dateDifferenceTool } from '../tools/calculators/date-difference'
 
 /**
  * Central registry of every tool available on the platform.
@@ -34,6 +35,7 @@ export const tools: ToolDefinition[] = [
   percentageCalculatorTool,
   interestCalculatorTool,
   ruleOfThreeTool,
+  dateDifferenceTool,
 ]
 
 export function getToolBySlug(slug: string) {

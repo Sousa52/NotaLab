@@ -247,6 +247,27 @@ export const ptPT = {
     howItWorks:
       'Na proporcionalidade direta, quando A aumenta, X aumenta na mesma proporção (ex.: 2 kg → 6 €, logo 5 kg → 15 €). Na proporcionalidade inversa, quando A aumenta, X diminui (ex.: 2 trabalhadores → 10 dias, logo 5 trabalhadores → 4 dias). A calculadora é genérica — usa-a para preços, quantidades, distâncias, receitas ou qualquer relação proporcional. Tudo calculado localmente, no teu navegador.',
   },
+  dateDifference: {
+    startLabel: 'Data inicial',
+    endLabel: 'Data final',
+    invalidDate: 'Introduz uma data válida.',
+    invalidState: 'Introduz duas datas válidas para veres a diferença.',
+    emptyState: 'Indica a data inicial e a data final para veres a diferença.',
+    reversedNotice: (start: string, end: string) =>
+      `A data final é anterior à data inicial, por isso trocámos a ordem: de ${start} até ${end}.`,
+    sameDateNotice: 'As duas datas são iguais, por isso a diferença é zero.',
+    totalTitle: 'Diferença total',
+    weeksTitle: 'Em semanas',
+    calendarTitle: 'Diferença de calendário',
+    dayUnit: (n: number) => (n === 1 ? '1 dia' : `${n} dias`),
+    weekUnit: (n: number) => (n === 1 ? '1 semana' : `${n} semanas`),
+    monthUnit: (n: number) => (n === 1 ? '1 mês' : `${n} meses`),
+    yearUnit: (n: number) => (n === 1 ? '1 ano' : `${n} anos`),
+    listAnd: 'e',
+    howItWorksTitle: 'Como funciona',
+    howItWorks:
+      'As datas são tratadas como dias de calendário, não como horas, por isso o fuso horário e a mudança de hora não afetam o resultado. A diferença total conta os dias de calendário entre as duas datas. A diferença de calendário conta anos e meses completos com a duração real de cada mês (nunca meses de 30 dias nem anos de 365 dias) e mostra os dias que sobram; quando o dia inicial não existe no mês seguinte (por exemplo, 31 de janeiro + 1 mês), usa-se o último dia desse mês. Se a data final for anterior à inicial, a ordem é trocada automaticamente. Tudo calculado localmente, no teu navegador.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT
