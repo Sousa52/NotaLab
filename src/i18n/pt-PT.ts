@@ -290,6 +290,28 @@ export const ptPT = {
     howItWorks:
       'Em «Calcular desconto», indicas o preço original e a percentagem: desconto = preço original × percentagem ÷ 100 e preço final = preço original − desconto. Em «Calcular percentagem», indicas o preço original e o preço final, e a calculadora devolve o desconto efetivo: (preço original − preço final) ÷ preço original × 100. O preço original tem de ser maior que zero, a percentagem tem de estar entre 0 e 100, e o preço final não pode ser negativo nem superior ao original. Os resultados são mostrados com duas casas decimais. Tudo calculado localmente, no teu navegador.',
   },
+  ectsAverage: {
+    rowLegend: (n: number) => `Unidade curricular ${n}`,
+    removeRow: (n: number) => `Remover unidade curricular ${n}`,
+    nameLabel: 'Nome (opcional)',
+    namePlaceholder: 'Ex.: Álgebra Linear',
+    gradeLabel: 'Nota (0–20)',
+    gradePlaceholder: '15',
+    ectsLabel: 'ECTS',
+    ectsPlaceholder: '6',
+    gradeRequired: 'Indica a nota.',
+    gradeInvalid: 'Nota entre 0 e 20.',
+    ectsRequired: 'Indica os ECTS.',
+    ectsInvalid: 'ECTS maior que 0.',
+    addSubject: 'Adicionar unidade curricular',
+    emptyState: 'Preenche a nota e os ECTS de todas as unidades curriculares para veres o resultado.',
+    averageLabel: 'Média final',
+    totalEctsLabel: 'Total de ECTS considerados',
+    subjectCountLabel: 'Unidades curriculares',
+    howItWorksTitle: 'Como funciona',
+    howItWorks:
+      'A média é ponderada pelos ECTS: multiplica a nota de cada unidade curricular pelos respetivos ECTS, soma os resultados e divide pela soma dos ECTS (média = Σ(nota × ECTS) ÷ Σ(ECTS)). As unidades curriculares com mais créditos têm, por isso, mais peso na média final. As notas vão de 0 a 20 e os ECTS têm de ser maiores que zero; ambos aceitam casas decimais. Todas as linhas têm de estar preenchidas — remove as que não precisares. As regras oficiais de classificação variam entre instituições, por isso este valor serve de referência. Tudo calculado localmente, no teu navegador.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT

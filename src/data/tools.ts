@@ -15,6 +15,7 @@ import { interestCalculatorTool } from '../tools/calculators/interest-calculator
 import { ruleOfThreeTool } from '../tools/calculators/rule-of-three'
 import { dateDifferenceTool } from '../tools/calculators/date-difference'
 import { discountCalculatorTool } from '../tools/calculators/desconto'
+import { ectsAverageTool } from '../tools/academic/ects-average'
 
 /**
  * Central registry of every tool available on the platform.
@@ -38,6 +39,7 @@ export const tools: ToolDefinition[] = [
   ruleOfThreeTool,
   dateDifferenceTool,
   discountCalculatorTool,
+  ectsAverageTool,
 ]
 
 export function getToolBySlug(slug: string) {
