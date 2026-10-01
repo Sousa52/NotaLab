@@ -312,6 +312,38 @@ export const ptPT = {
     howItWorks:
       'A média é ponderada pelos ECTS: multiplica a nota de cada unidade curricular pelos respetivos ECTS, soma os resultados e divide pela soma dos ECTS (média = Σ(nota × ECTS) ÷ Σ(ECTS)). As unidades curriculares com mais créditos têm, por isso, mais peso na média final. As notas vão de 0 a 20 e os ECTS têm de ser maiores que zero; ambos aceitam casas decimais. Todas as linhas têm de estar preenchidas — remove as que não precisares. As regras oficiais de classificação variam entre instituições, por isso este valor serve de referência. Tudo calculado localmente, no teu navegador.',
   },
+  vatCalculator: {
+    modeLabel: 'Operação',
+    modeAdd: 'Adicionar IVA',
+    modeRemove: 'Retirar IVA',
+    netLabel: 'Valor sem IVA',
+    grossLabel: 'Valor com IVA',
+    amountPlaceholder: '100',
+    rateLabel: 'Taxa de IVA',
+    rateOption: (rate: number, name: string) => `${rate}% — ${name}`,
+    rateReducedName: 'Taxa reduzida',
+    rateIntermediateName: 'Taxa intermédia',
+    rateNormalName: 'Taxa normal',
+    rateCustom: 'Personalizada',
+    customRateLabel: 'Taxa personalizada',
+    customRatePlaceholder: '8,5',
+    rateNotice:
+      'As taxas indicadas são as do continente de Portugal. As taxas aplicáveis podem variar consoante a região (por exemplo, nas regiões autónomas), o tipo de bem ou serviço e as circunstâncias legais. Esta calculadora só faz as contas — não determina que taxa se aplica ao teu caso.',
+    vatLabel: 'Valor do IVA',
+    vatIncludedLabel: 'IVA incluído',
+    totalLabel: 'Valor total com IVA',
+    invalidValue: 'Introduz um número válido.',
+    emptyState: 'Indica o valor e a taxa de IVA para veres o resultado.',
+    errors: {
+      invalidNumber: 'Introduz valores numéricos válidos.',
+      amountNegative: 'O valor não pode ser negativo.',
+      rateNegative: 'A taxa de IVA não pode ser negativa.',
+      resultOverflow: 'O resultado não é um número válido.',
+    },
+    howItWorksTitle: 'Como funciona',
+    howItWorks:
+      'Em «Adicionar IVA», indicas o valor sem IVA: IVA = valor sem IVA × taxa ÷ 100 e total = valor sem IVA + IVA. Em «Retirar IVA», indicas o valor com IVA: valor sem IVA = valor com IVA ÷ (1 + taxa ÷ 100) e IVA incluído = valor com IVA − valor sem IVA. Os valores são mostrados com duas casas decimais e os cálculos não são arredondados antes disso, por isso uma fatura que arredonde por linha ou por total pode diferir em alguns cêntimos. Tudo calculado localmente, no teu navegador.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT
