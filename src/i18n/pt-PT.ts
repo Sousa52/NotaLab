@@ -344,6 +344,48 @@ export const ptPT = {
     howItWorks:
       'Em «Adicionar IVA», indicas o valor sem IVA: IVA = valor sem IVA × taxa ÷ 100 e total = valor sem IVA + IVA. Em «Retirar IVA», indicas o valor com IVA: valor sem IVA = valor com IVA ÷ (1 + taxa ÷ 100) e IVA incluído = valor com IVA − valor sem IVA. Os valores são mostrados com duas casas decimais e os cálculos não são arredondados antes disso, por isso uma fatura que arredonde por linha ou por total pode diferir em alguns cêntimos. Tudo calculado localmente, no teu navegador.',
   },
+  salaryCalculator: {
+    grossLabel: 'Salário bruto mensal',
+    grossPlaceholder: '1200',
+    paymentsLabel: 'Número de pagamentos anuais',
+    paymentsOption: (n: number) => `${n} pagamentos`,
+    irsLabel: 'Taxa de retenção de IRS',
+    irsPlaceholder: '10',
+    irsHint: 'Percentagem definida por ti; a ferramenta não a calcula.',
+    ssLabel: 'Taxa de Segurança Social',
+    ssPlaceholder: '11',
+    ssHint: 'Por omissão, 11%. Podes alterá-la.',
+    invalidValue: 'Introduz um número válido.',
+    emptyState: 'Indica o salário bruto e a taxa de retenção de IRS para veres a estimativa.',
+    errors: {
+      invalidNumber: 'Introduz valores numéricos válidos.',
+      grossNegative: 'O salário bruto não pode ser negativo.',
+      paymentsInvalid: 'O número de pagamentos anuais tem de ser 12 ou 14.',
+      rateOutOfRange: 'As taxas têm de estar entre 0 e 100.',
+      deductionsExceedGross: 'Os descontos não podem ser superiores ao salário bruto.',
+      resultOverflow: 'O resultado não é um número válido.',
+    },
+    noticeTitle: 'Isto é apenas uma estimativa',
+    noticeItems: [
+      'Esta é uma estimativa e não um cálculo oficial de processamento salarial.',
+      'A retenção de IRS depende das tabelas oficiais aplicáveis e das circunstâncias individuais de cada pessoa.',
+      'A percentagem de retenção que indicas é um pressuposto teu; esta ferramenta não a calcula nem a verifica.',
+      'O IRS efetivamente devido no final do ano pode ser diferente das retenções feitas mensalmente.',
+      'Outros descontos e benefícios não estão incluídos.',
+    ],
+    netMonthlyLabel: 'Salário líquido mensal estimado',
+    deductionsTitle: 'Descontos mensais estimados',
+    ssAmountLabel: 'Segurança Social',
+    irsAmountLabel: 'Retenção de IRS',
+    totalDeductionsLabel: 'Total de descontos',
+    annualTitle: 'Estimativa anual',
+    grossAnnualLabel: 'Salário bruto anual estimado',
+    netAnnualLabel: 'Salário líquido anual estimado',
+    annualNote: (n: number) => `Calculado com ${n} pagamentos por ano.`,
+    howItWorksTitle: 'Como funciona',
+    howItWorks:
+      'Segurança Social = salário bruto × taxa de Segurança Social ÷ 100 e retenção de IRS = salário bruto × taxa de IRS ÷ 100. O salário líquido mensal é o bruto menos esses dois descontos. Os valores anuais multiplicam o valor mensal pelo número de pagamentos (12 ou 14). Os descontos não podem ultrapassar o salário bruto, por isso as duas taxas, somadas, não podem passar de 100%. Os valores são mostrados com duas casas decimais. Tudo calculado localmente, no teu navegador.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT

@@ -17,6 +17,7 @@ import { dateDifferenceTool } from '../tools/calculators/date-difference'
 import { discountCalculatorTool } from '../tools/calculators/desconto'
 import { ectsAverageTool } from '../tools/academic/ects-average'
 import { vatCalculatorTool } from '../tools/calculators/vat-calculator'
+import { salaryCalculatorTool } from '../tools/calculators/salary-calculator'
 
 /**
  * Central registry of every tool available on the platform.
@@ -42,6 +43,7 @@ export const tools: ToolDefinition[] = [
   discountCalculatorTool,
   ectsAverageTool,
   vatCalculatorTool,
+  salaryCalculatorTool,
 ]
 
 export function getToolBySlug(slug: string) {
