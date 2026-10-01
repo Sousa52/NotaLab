@@ -268,6 +268,28 @@ export const ptPT = {
     howItWorks:
       'As datas são tratadas como dias de calendário, não como horas, por isso o fuso horário e a mudança de hora não afetam o resultado. A diferença total conta os dias de calendário entre as duas datas. A diferença de calendário conta anos e meses completos com a duração real de cada mês (nunca meses de 30 dias nem anos de 365 dias) e mostra os dias que sobram; quando o dia inicial não existe no mês seguinte (por exemplo, 31 de janeiro + 1 mês), usa-se o último dia desse mês. Se a data final for anterior à inicial, a ordem é trocada automaticamente. Tudo calculado localmente, no teu navegador.',
   },
+  discountCalculator: {
+    modeLabel: 'Operação',
+    modeDiscount: 'Calcular desconto',
+    modePercentage: 'Calcular percentagem',
+    originalPriceLabel: 'Preço original',
+    discountPercentLabel: 'Percentagem de desconto',
+    finalPriceLabel: 'Preço final',
+    discountAmountLabel: 'Valor do desconto',
+    invalidValue: 'Introduz um número válido.',
+    emptyState: 'Preenche os campos para veres o resultado.',
+    errors: {
+      invalidNumber: 'Introduz valores numéricos válidos.',
+      originalNotPositive: 'O preço original tem de ser maior que zero.',
+      percentOutOfRange: 'A percentagem de desconto tem de estar entre 0 e 100.',
+      finalNegative: 'O preço final não pode ser negativo.',
+      finalExceedsOriginal: 'O preço final não pode ser superior ao preço original.',
+      resultOverflow: 'O resultado não é um número válido.',
+    },
+    howItWorksTitle: 'Como funciona',
+    howItWorks:
+      'Em «Calcular desconto», indicas o preço original e a percentagem: desconto = preço original × percentagem ÷ 100 e preço final = preço original − desconto. Em «Calcular percentagem», indicas o preço original e o preço final, e a calculadora devolve o desconto efetivo: (preço original − preço final) ÷ preço original × 100. O preço original tem de ser maior que zero, a percentagem tem de estar entre 0 e 100, e o preço final não pode ser negativo nem superior ao original. Os resultados são mostrados com duas casas decimais. Tudo calculado localmente, no teu navegador.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT
