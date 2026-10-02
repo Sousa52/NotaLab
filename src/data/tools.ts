@@ -19,6 +19,7 @@ import { ectsAverageTool } from '../tools/academic/ects-average'
 import { vatCalculatorTool } from '../tools/calculators/vat-calculator'
 import { salaryCalculatorTool } from '../tools/calculators/salary-calculator'
 import { compoundInterestTool } from '../tools/calculators/compound-interest'
+import { loanRepaymentTool } from '../tools/calculators/loan-repayment'
 
 /**
  * Central registry of every tool available on the platform.
@@ -46,6 +47,7 @@ export const tools: ToolDefinition[] = [
   vatCalculatorTool,
   salaryCalculatorTool,
   compoundInterestTool,
+  loanRepaymentTool,
 ]
 
 export function getToolBySlug(slug: string) {
