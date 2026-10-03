@@ -446,6 +446,120 @@ export const ptPT = {
     howItWorks:
       'A taxa anual é nominal e é capitalizada com a frequência escolhida; a taxa efetiva anual é (1 + taxa ÷ n)^n − 1, em que n é o número de capitalizações por ano. O dinheiro cresce mês a mês com a taxa mensal equivalente, e os reforços são feitos no fim de cada mês ou de cada ano, conforme escolheres. O total investido é o capital inicial mais todos os reforços, e os juros são a diferença entre o saldo final e esse total. Os valores são mostrados com duas casas decimais. Para juros com uma taxa por período e sem reforços, usa a calculadora de juros. Tudo calculado localmente, no teu navegador.',
   },
+  loanRepayment: {
+    loanAmountLabel: 'Montante do crédito',
+    loanAmountHint: 'Valor total do crédito, antes de descontar a entrada.',
+    loanAmountPlaceholder: '150000',
+    rateLabel: 'Taxa de juro anual nominal',
+    rateHint: 'Dividida por 12 para obter a taxa mensal. Pode ser 0.',
+    ratePlaceholder: '4',
+    termLabel: 'Duração',
+    termHint: 'Número inteiro, até 50 anos (600 meses).',
+    termPlaceholder: '25',
+    termUnitLabel: 'Unidade da duração',
+    termUnitYears: 'Anos',
+    termUnitMonths: 'Meses',
+    downPaymentLabel: 'Entrada (opcional)',
+    downPaymentHint: 'Pagamento inicial que reduz o montante financiado.',
+    downPaymentPlaceholder: '20000',
+    extraLabel: 'Reforço mensal (opcional)',
+    extraHint: 'Valor pago todos os meses para além da prestação, para amortizar mais depressa.',
+    extraPlaceholder: '100',
+    invalidValue: 'Introduz um número válido.',
+    emptyState: 'Indica o montante, a taxa de juro e a duração para veres a estimativa.',
+    errors: {
+      invalidNumber: 'Introduz valores numéricos válidos.',
+      amountNotPositive: 'O montante do crédito tem de ser maior que zero.',
+      downPaymentNegative: 'A entrada não pode ser negativa.',
+      downPaymentTooHigh: 'A entrada tem de ser inferior ao montante do crédito.',
+      rateOutOfRange: 'A taxa de juro tem de estar entre 0 e 100%.',
+      termInvalid: 'A duração tem de ser um número inteiro, até 50 anos (600 meses).',
+      extraNegative: 'O reforço mensal não pode ser negativo.',
+      resultOverflow: 'O resultado não é um número válido.',
+    },
+    duration: (months: number) => {
+      const years = Math.floor(months / 12)
+      const rest = months % 12
+      const parts = [
+        ...(years > 0 ? [years === 1 ? '1 ano' : `${years} anos`] : []),
+        ...(rest > 0 ? [rest === 1 ? '1 mês' : `${rest} meses`] : []),
+      ]
+      return parts.length > 0 ? parts.join(' e ') : '0 meses'
+    },
+    instalmentLabel: 'Prestação mensal (sem reforços)',
+    instalmentNote: 'Valor contratual, igual todos os meses.',
+    paymentWithExtraLabel: 'Pagamento mensal com reforço',
+    paymentWithExtraNote: 'Prestação contratual + reforço mensal (o último mês pode ser menor).',
+    financedLabel: 'Montante financiado',
+    totalInterestLabel: 'Total de juros pagos',
+    totalRepaidLabel: 'Total pago',
+    totalRepaidNote: 'Montante financiado + juros, sem contar com a entrada.',
+    payoffLabel: 'Duração estimada até liquidar',
+    monthsSavedLabel: 'Tempo poupado',
+    interestSavedLabel: 'Juros poupados com os reforços',
+    extraSectionTitle: 'Efeito do reforço mensal',
+    baselineSummary: (interest: string, duration: string) => `Sem reforço: ${interest} de juros em ${duration}.`,
+    tableToggle: (months: number) => `Ver plano de amortização (${months} ${months === 1 ? 'mês' : 'meses'})`,
+    tableMonth: 'Mês',
+    tableStart: 'Saldo inicial',
+    tablePrincipal: 'Capital amortizado',
+    tableInterest: 'Juros pagos',
+    tableAdditional: 'Reforço',
+    tableEnd: 'Saldo em dívida',
+    disclaimer:
+      'Estimativa para um crédito de taxa fixa com prestações constantes. Não inclui comissões bancárias, seguros, impostos nem encargos por reembolso antecipado, e não é uma proposta oficial de nenhum banco. Para valores oficiais, consulta sempre a proposta da instituição financeira.',
+    howItWorksTitle: 'Como funciona',
+    howItWorks:
+      'A taxa anual nominal é dividida por 12 para obter a taxa mensal. A prestação usa a fórmula das prestações constantes: P × i ÷ (1 − (1 + i)^−n), em que P é o montante financiado, i a taxa mensal e n o número de meses; com taxa 0%, o montante é dividido por igual pelos meses. A entrada reduz o montante financiado. O reforço mensal é aplicado depois da prestação e nunca ultrapassa o que ainda falta pagar: a prestação contratual não muda, mas o crédito acaba mais cedo e pagas menos juros. O último mês liquida o que restar. Os valores são mostrados com duas casas decimais. Tudo calculado localmente, no teu navegador.',
+  },
+  jpgToPng: {
+    dropTitle: 'Arrasta as imagens JPG para aqui',
+    dropHint: 'ou clica para escolher ficheiros',
+    dropFormats: (maxMb: number, maxFiles: number) =>
+      `Aceita .jpg e .jpeg, até ${maxMb} MB por imagem e ${maxFiles} imagens de cada vez.`,
+    transparencyNote:
+      'O JPG não suporta transparência, por isso não é possível recuperar áreas transparentes a partir do original. A conversão para PNG mantém os píxeis da imagem tal como estão — não melhora a qualidade nem remove os artefactos de compressão do JPG — e, por ser um formato sem perdas, o ficheiro costuma ficar maior.',
+    emptyState: 'Ainda não escolheste nenhuma imagem.',
+    listTitle: (n: number) => (n === 1 ? '1 imagem' : `${n} imagens`),
+    convertButton: (n: number) => (n === 0 ? 'Converter' : n === 1 ? 'Converter 1 imagem' : `Converter ${n} imagens`),
+    converting: 'A converter…',
+    progress: (current: number, total: number) => `A converter a imagem ${current} de ${total}…`,
+    summary: (done: number, failed: number) => {
+      const doneText = done === 1 ? '1 imagem convertida' : `${done} imagens convertidas`
+      if (failed === 0) return `${doneText} com sucesso.`
+      const failedText = failed === 1 ? '1 com erro' : `${failed} com erro`
+      return done === 0 ? `Nenhuma imagem convertida; ${failedText}.` : `${doneText}; ${failedText}.`
+    },
+    readyToConvert: (n: number) => (n === 1 ? '1 imagem pronta a converter.' : `${n} imagens prontas a converter.`),
+    clearSelection: 'Limpar seleção',
+    downloadAll: 'Descarregar tudo (.zip)',
+    zipping: 'A criar o ficheiro .zip…',
+    zipFailed: 'Não foi possível criar o ficheiro .zip.',
+    download: 'Descarregar PNG',
+    downloadFile: (name: string) => `Descarregar PNG: ${name}`,
+    removeFile: (name: string) => `Remover ${name}`,
+    statusPending: 'Pronto a converter',
+    statusConverting: 'A converter…',
+    statusDone: 'Convertido',
+    originalLabel: 'Original',
+    pngLabel: 'PNG',
+    dimensions: (width: number, height: number) => `${width} × ${height} px`,
+    previewAlt: (name: string) => `Pré-visualização de ${name}`,
+    tooManyFiles: (max: number, ignored: number) =>
+      `Só podes ter até ${max} imagens de cada vez. ${ignored === 1 ? '1 ficheiro ficou de fora' : `${ignored} ficheiros ficaram de fora`}.`,
+    errors: {
+      notJpeg: 'Não é um ficheiro JPG/JPEG.',
+      empty: 'O ficheiro está vazio.',
+      tooLarge: 'O ficheiro excede o tamanho máximo permitido.',
+      unsupported: 'O teu navegador não suporta esta conversão.',
+      decodeFailed: 'Não foi possível ler a imagem. O ficheiro pode estar corrompido.',
+      tooManyPixels: 'A imagem é demasiado grande para ser convertida no navegador.',
+      conversionFailed: 'A conversão falhou. Tenta novamente ou usa uma imagem mais pequena.',
+    },
+    howItWorksTitle: 'Como funciona',
+    howItWorks:
+      'Cada imagem é lida e desenhada num canvas no teu navegador e exportada como PNG, com as mesmas dimensões do original. Os ficheiros nunca saem do teu dispositivo e os originais não são alterados. As imagens são convertidas uma de cada vez para poupar memória. O ficheiro .zip também é criado no navegador, sem compressão adicional (os PNG já estão comprimidos). Requer um navegador recente.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT

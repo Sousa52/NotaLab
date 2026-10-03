@@ -20,6 +20,7 @@ import { vatCalculatorTool } from '../tools/calculators/vat-calculator'
 import { salaryCalculatorTool } from '../tools/calculators/salary-calculator'
 import { compoundInterestTool } from '../tools/calculators/compound-interest'
 import { loanRepaymentTool } from '../tools/calculators/loan-repayment'
+import { jpgToPngTool } from '../tools/converters/jpg-to-png'
 
 /**
  * Central registry of every tool available on the platform.
@@ -48,6 +49,7 @@ export const tools: ToolDefinition[] = [
   salaryCalculatorTool,
   compoundInterestTool,
   loanRepaymentTool,
+  jpgToPngTool,
 ]
 
 export function getToolBySlug(slug: string) {

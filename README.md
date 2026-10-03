@@ -2,7 +2,7 @@
 
 Ferramentas simples para estudantes — calculadoras académicas, utilitários de estudo e conversores de ficheiros, gratuitos e sem necessidade de conta.
 
-> **Estado atual:** arquitetura, design system, homepage e diretório de ferramentas implementados. Ferramentas disponíveis: calculadora de média ponderada, "que nota preciso?", calculadora de média da licenciatura, contador de palavras e caracteres, temporizador Pomodoro, conversor de unidades, conversor de notas, planeador de sessões de estudo, contador para o exame, gerador de referências APA 7, calculadora científica, calculadora de percentagens, calculadora de juros, calculadora de regra de três, calculadora de diferença de datas, calculadora de descontos, calculadora de média por ECTS, calculadora de IVA, calculadora de salário líquido, calculadora de juros compostos, e simulador de crédito.
+> **Estado atual:** arquitetura, design system, homepage e diretório de ferramentas implementados. Ferramentas disponíveis: calculadora de média ponderada, "que nota preciso?", calculadora de média da licenciatura, contador de palavras e caracteres, temporizador Pomodoro, conversor de unidades, conversor de notas, planeador de sessões de estudo, contador para o exame, gerador de referências APA 7, calculadora científica, calculadora de percentagens, calculadora de juros, calculadora de regra de três, calculadora de diferença de datas, calculadora de descontos, calculadora de média por ECTS, calculadora de IVA, calculadora de salário líquido, calculadora de juros compostos, simulador de crédito, e conversor de JPG para PNG.
 
 ## Stack
 
