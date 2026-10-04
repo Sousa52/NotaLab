@@ -560,6 +560,64 @@ export const ptPT = {
     howItWorks:
       'Cada imagem é lida e desenhada num canvas no teu navegador e exportada como PNG, com as mesmas dimensões do original. Os ficheiros nunca saem do teu dispositivo e os originais não são alterados. As imagens são convertidas uma de cada vez para poupar memória. O ficheiro .zip também é criado no navegador, sem compressão adicional (os PNG já estão comprimidos). Requer um navegador recente.',
   },
+  pngToJpg: {
+    dropTitle: 'Arrasta as imagens PNG para aqui',
+    dropHint: 'ou clica para escolher ficheiros',
+    dropFormats: (maxMb: number, maxFiles: number) =>
+      `Aceita .png, até ${maxMb} MB por imagem e ${maxFiles} imagens de cada vez.`,
+    transparencyNote:
+      'O JPG não suporta transparência: as áreas transparentes do PNG ficam com fundo branco, e não é possível voltar a obter a transparência a partir do JPG. O JPG também comprime com perdas, por isso os pormenores finos podem ficar menos nítidos — escolhe uma qualidade mais alta para os preservar.',
+    qualityLabel: 'Qualidade do JPG',
+    qualityValue: (quality: number) => `${quality}%`,
+    qualityHint:
+      'Quanto mais alta, melhor a imagem e maior o ficheiro. 90% é um bom equilíbrio. A qualidade aplica-se às conversões seguintes.',
+    rowQuality: (quality: number) => `Qualidade ${quality}%`,
+    qualityMismatch: (n: number, quality: number) =>
+      n === 1
+        ? `1 imagem foi convertida com outra qualidade. Podes convertê-la de novo com ${quality}%.`
+        : `${n} imagens foram convertidas com outra qualidade. Podes convertê-las de novo com ${quality}%.`,
+    reconvert: (quality: number) => `Converter de novo com ${quality}%`,
+    emptyState: 'Ainda não escolheste nenhuma imagem.',
+    listTitle: (n: number) => (n === 1 ? '1 imagem' : `${n} imagens`),
+    convertButton: (n: number) => (n === 0 ? 'Converter' : n === 1 ? 'Converter 1 imagem' : `Converter ${n} imagens`),
+    converting: 'A converter…',
+    progress: (current: number, total: number) => `A converter a imagem ${current} de ${total}…`,
+    summary: (done: number, failed: number) => {
+      const doneText = done === 1 ? '1 imagem convertida' : `${done} imagens convertidas`
+      if (failed === 0) return `${doneText} com sucesso.`
+      const failedText = failed === 1 ? '1 com erro' : `${failed} com erro`
+      return done === 0 ? `Nenhuma imagem convertida; ${failedText}.` : `${doneText}; ${failedText}.`
+    },
+    readyToConvert: (n: number) => (n === 1 ? '1 imagem pronta a converter.' : `${n} imagens prontas a converter.`),
+    clearSelection: 'Limpar seleção',
+    downloadAll: 'Descarregar tudo (.zip)',
+    zipping: 'A criar o ficheiro .zip…',
+    zipFailed: 'Não foi possível criar o ficheiro .zip.',
+    download: 'Descarregar JPG',
+    downloadFile: (name: string) => `Descarregar JPG: ${name}`,
+    removeFile: (name: string) => `Remover ${name}`,
+    statusPending: 'Pronto a converter',
+    statusConverting: 'A converter…',
+    statusDone: 'Convertido',
+    originalLabel: 'Original',
+    outputLabel: 'JPG',
+    dimensions: (width: number, height: number) => `${width} × ${height} px`,
+    previewAlt: (name: string) => `Pré-visualização de ${name}`,
+    tooManyFiles: (max: number, ignored: number) =>
+      `Só podes ter até ${max} imagens de cada vez. ${ignored === 1 ? '1 ficheiro ficou de fora' : `${ignored} ficheiros ficaram de fora`}.`,
+    errors: {
+      notPng: 'Não é um ficheiro PNG.',
+      empty: 'O ficheiro está vazio.',
+      tooLarge: 'O ficheiro excede o tamanho máximo permitido.',
+      unsupported: 'O teu navegador não suporta esta conversão.',
+      decodeFailed: 'Não foi possível ler a imagem. O ficheiro pode estar corrompido.',
+      tooManyPixels: 'A imagem é demasiado grande para ser convertida no navegador.',
+      conversionFailed: 'A conversão falhou. Tenta novamente ou usa uma imagem mais pequena.',
+    },
+    howItWorksTitle: 'Como funciona',
+    howItWorks:
+      'Cada imagem é lida e desenhada num canvas com fundo branco no teu navegador e exportada como JPG com a qualidade que escolheres, mantendo as dimensões do original. Os ficheiros nunca saem do teu dispositivo e os originais não são alterados. As imagens são convertidas uma de cada vez para poupar memória. O ficheiro .zip também é criado no navegador, sem compressão adicional. Requer um navegador recente.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT

@@ -21,6 +21,7 @@ import { salaryCalculatorTool } from '../tools/calculators/salary-calculator'
 import { compoundInterestTool } from '../tools/calculators/compound-interest'
 import { loanRepaymentTool } from '../tools/calculators/loan-repayment'
 import { jpgToPngTool } from '../tools/converters/jpg-to-png'
+import { pngToJpgTool } from '../tools/converters/png-to-jpg'
 
 /**
  * Central registry of every tool available on the platform.
@@ -50,6 +51,7 @@ export const tools: ToolDefinition[] = [
   compoundInterestTool,
   loanRepaymentTool,
   jpgToPngTool,
+  pngToJpgTool,
 ]
 
 export function getToolBySlug(slug: string) {
