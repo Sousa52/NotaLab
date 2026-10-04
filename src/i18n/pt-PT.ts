@@ -618,6 +618,55 @@ export const ptPT = {
     howItWorks:
       'Cada imagem é lida e desenhada num canvas com fundo branco no teu navegador e exportada como JPG com a qualidade que escolheres, mantendo as dimensões do original. Os ficheiros nunca saem do teu dispositivo e os originais não são alterados. As imagens são convertidas uma de cada vez para poupar memória. O ficheiro .zip também é criado no navegador, sem compressão adicional. Requer um navegador recente.',
   },
+  webpToPng: {
+    dropTitle: 'Arrasta as imagens WebP para aqui',
+    dropHint: 'ou clica para escolher ficheiros',
+    dropFormats: (maxMb: number, maxFiles: number) =>
+      `Aceita .webp, até ${maxMb} MB por imagem e ${maxFiles} imagens de cada vez.`,
+    transparencyNote:
+      'O PNG mantém a transparência e as dimensões da imagem WebP. A conversão não recupera detalhe perdido numa compressão WebP com perdas e o ficheiro costuma ficar maior. Se o WebP for animado, só é convertido o primeiro fotograma.',
+    emptyState: 'Ainda não escolheste nenhuma imagem.',
+    listTitle: (n: number) => (n === 1 ? '1 imagem' : `${n} imagens`),
+    convertButton: (n: number) => (n === 0 ? 'Converter' : n === 1 ? 'Converter 1 imagem' : `Converter ${n} imagens`),
+    converting: 'A converter…',
+    progress: (current: number, total: number) => `A converter a imagem ${current} de ${total}…`,
+    summary: (done: number, failed: number) => {
+      const doneText = done === 1 ? '1 imagem convertida' : `${done} imagens convertidas`
+      if (failed === 0) return `${doneText} com sucesso.`
+      const failedText = failed === 1 ? '1 com erro' : `${failed} com erro`
+      return done === 0 ? `Nenhuma imagem convertida; ${failedText}.` : `${doneText}; ${failedText}.`
+    },
+    readyToConvert: (n: number) => (n === 1 ? '1 imagem pronta a converter.' : `${n} imagens prontas a converter.`),
+    clearSelection: 'Limpar seleção',
+    downloadAll: 'Descarregar tudo (.zip)',
+    zipping: 'A criar o ficheiro .zip…',
+    zipFailed: 'Não foi possível criar o ficheiro .zip.',
+    download: 'Descarregar PNG',
+    downloadFile: (name: string) => `Descarregar PNG: ${name}`,
+    removeFile: (name: string) => `Remover ${name}`,
+    statusPending: 'Pronto a converter',
+    statusConverting: 'A converter…',
+    statusDone: 'Convertido',
+    originalLabel: 'Original',
+    pngLabel: 'PNG',
+    dimensions: (width: number, height: number) => `${width} × ${height} px`,
+    previewAlt: (name: string) => `Pré-visualização de ${name}`,
+    tooManyFiles: (max: number, ignored: number) =>
+      `Só podes ter até ${max} imagens de cada vez. ${ignored === 1 ? '1 ficheiro ficou de fora' : `${ignored} ficheiros ficaram de fora`}.`,
+    errors: {
+      notWebp: 'Não é um ficheiro WebP.',
+      empty: 'O ficheiro está vazio.',
+      tooLarge: 'O ficheiro excede o tamanho máximo permitido.',
+      unsupported: 'O teu navegador não suporta esta conversão.',
+      decodeFailed:
+        'Não foi possível ler a imagem. O ficheiro pode estar corrompido ou o teu navegador pode não suportar WebP.',
+      tooManyPixels: 'A imagem é demasiado grande para ser convertida no navegador.',
+      conversionFailed: 'A conversão falhou. Tenta novamente ou usa uma imagem mais pequena.',
+    },
+    howItWorksTitle: 'Como funciona',
+    howItWorks:
+      'Cada imagem é lida e desenhada num canvas transparente no teu navegador e exportada como PNG, com as mesmas dimensões do original e com a transparência preservada. Os ficheiros nunca saem do teu dispositivo e os originais não são alterados. As imagens são convertidas uma de cada vez para poupar memória. O ficheiro .zip também é criado no navegador, sem compressão adicional (os PNG já estão comprimidos). Requer um navegador recente com suporte para WebP.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT

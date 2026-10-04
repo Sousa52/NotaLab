@@ -22,6 +22,7 @@ import { compoundInterestTool } from '../tools/calculators/compound-interest'
 import { loanRepaymentTool } from '../tools/calculators/loan-repayment'
 import { jpgToPngTool } from '../tools/converters/jpg-to-png'
 import { pngToJpgTool } from '../tools/converters/png-to-jpg'
+import { webpToPngTool } from '../tools/converters/webp-to-png'
 
 /**
  * Central registry of every tool available on the platform.
@@ -52,6 +53,7 @@ export const tools: ToolDefinition[] = [
   loanRepaymentTool,
   jpgToPngTool,
   pngToJpgTool,
+  webpToPngTool,
 ]
 
 export function getToolBySlug(slug: string) {
