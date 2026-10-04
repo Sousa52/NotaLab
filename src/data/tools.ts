@@ -23,6 +23,7 @@ import { loanRepaymentTool } from '../tools/calculators/loan-repayment'
 import { jpgToPngTool } from '../tools/converters/jpg-to-png'
 import { pngToJpgTool } from '../tools/converters/png-to-jpg'
 import { webpToPngTool } from '../tools/converters/webp-to-png'
+import { svgToPngTool } from '../tools/converters/svg-to-png'
 
 /**
  * Central registry of every tool available on the platform.
@@ -54,6 +55,7 @@ export const tools: ToolDefinition[] = [
   jpgToPngTool,
   pngToJpgTool,
   webpToPngTool,
+  svgToPngTool,
 ]
 
 export function getToolBySlug(slug: string) {

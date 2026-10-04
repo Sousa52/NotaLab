@@ -667,6 +667,69 @@ export const ptPT = {
     howItWorks:
       'Cada imagem é lida e desenhada num canvas transparente no teu navegador e exportada como PNG, com as mesmas dimensões do original e com a transparência preservada. Os ficheiros nunca saem do teu dispositivo e os originais não são alterados. As imagens são convertidas uma de cada vez para poupar memória. O ficheiro .zip também é criado no navegador, sem compressão adicional (os PNG já estão comprimidos). Requer um navegador recente com suporte para WebP.',
   },
+  svgToPng: {
+    dropTitle: 'Arrasta os ficheiros SVG para aqui',
+    dropHint: 'ou clica para escolher ficheiros',
+    dropFormats: (maxMb: number, maxFiles: number) =>
+      `Aceita .svg, até ${maxMb} MB por ficheiro e ${maxFiles} ficheiros de cada vez.`,
+    outputLabel: 'Tamanho do PNG',
+    outputHint: (maxSide: string, maxMegapixels: number) =>
+      `O SVG é vetorial, por isso podes escolher a resolução; a proporção do original é sempre mantida. Por omissão, 2×. Máximo: ${maxSide} px por lado e ${maxMegapixels} megapíxeis. O tamanho escolhido aplica-se às conversões seguintes.`,
+    scaleOption: (n: number) => `Escala ${n}×`,
+    widthOption: (px: number) => `Largura de ${px} px`,
+    outputMismatch: (n: number, label: string) =>
+      n === 1
+        ? `1 imagem foi convertida com outro tamanho. Podes convertê-la de novo (${label}).`
+        : `${n} imagens foram convertidas com outro tamanho. Podes convertê-las de novo (${label}).`,
+    reconvert: (label: string) => `Converter de novo (${label})`,
+    safetyNote:
+      'O PNG mantém a transparência do SVG (o fundo fica transparente). Cada SVG é desenhado de forma isolada no teu navegador: scripts, ligações e recursos externos referidos no ficheiro não são executados nem carregados, por isso imagens ou tipos de letra externos podem não aparecer no resultado.',
+    emptyState: 'Ainda não escolheste nenhum ficheiro.',
+    listTitle: (n: number) => (n === 1 ? '1 ficheiro' : `${n} ficheiros`),
+    convertButton: (n: number) => (n === 0 ? 'Converter' : n === 1 ? 'Converter 1 ficheiro' : `Converter ${n} ficheiros`),
+    converting: 'A converter…',
+    progress: (current: number, total: number) => `A converter o ficheiro ${current} de ${total}…`,
+    summary: (done: number, failed: number) => {
+      const doneText = done === 1 ? '1 ficheiro convertido' : `${done} ficheiros convertidos`
+      if (failed === 0) return `${doneText} com sucesso.`
+      const failedText = failed === 1 ? '1 com erro' : `${failed} com erro`
+      return done === 0 ? `Nenhum ficheiro convertido; ${failedText}.` : `${doneText}; ${failedText}.`
+    },
+    readyToConvert: (n: number) => (n === 1 ? '1 ficheiro pronto a converter.' : `${n} ficheiros prontos a converter.`),
+    clearSelection: 'Limpar seleção',
+    downloadAll: 'Descarregar tudo (.zip)',
+    zipping: 'A criar o ficheiro .zip…',
+    zipFailed: 'Não foi possível criar o ficheiro .zip.',
+    download: 'Descarregar PNG',
+    downloadFile: (name: string) => `Descarregar PNG: ${name}`,
+    removeFile: (name: string) => `Remover ${name}`,
+    statusPending: 'Pronto a converter',
+    statusConverting: 'A converter…',
+    statusDone: 'Convertido',
+    originalLabel: 'Original',
+    pngLabel: 'PNG',
+    dimensions: (width: number, height: number) => `${width} × ${height} px`,
+    previewAlt: (name: string) => `Pré-visualização de ${name}`,
+    tooManyFiles: (max: number, ignored: number) =>
+      `Só podes ter até ${max} ficheiros de cada vez. ${ignored === 1 ? '1 ficheiro ficou de fora' : `${ignored} ficheiros ficaram de fora`}.`,
+    errors: {
+      notSvg: 'Não é um ficheiro SVG.',
+      empty: 'O ficheiro está vazio.',
+      tooLarge: 'O ficheiro excede o tamanho máximo permitido.',
+      invalidSvg: 'O ficheiro não é um SVG válido ou contém conteúdo que não é suportado.',
+      unsafeContent:
+        'O SVG contém declarações de entidades (<!ENTITY>), que não são permitidas por segurança.',
+      noDimensions:
+        'Não foi possível determinar o tamanho do SVG: faltam as medidas width/height ou o viewBox.',
+      outputTooLarge: 'O tamanho do PNG excede o limite permitido. Escolhe uma escala ou largura menor.',
+      decodeFailed: 'Não foi possível ler o ficheiro.',
+      conversionFailed:
+        'A conversão falhou. O SVG pode usar funcionalidades que o navegador não permite desenhar. Tenta outro tamanho ou outro ficheiro.',
+    },
+    howItWorksTitle: 'Como funciona',
+    howItWorks:
+      'Cada SVG é lido como texto e são determinadas as suas medidas (width/height ou viewBox); o tamanho do PNG é calculado mantendo a proporção do original. O SVG é depois desenhado numa imagem isolada do navegador — nunca é inserido na página — e exportado como PNG com fundo transparente. Os ficheiros nunca saem do teu dispositivo e os originais não são alterados. Os ficheiros são convertidos um de cada vez para poupar memória. O ficheiro .zip também é criado no navegador, sem compressão adicional.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT
