@@ -24,6 +24,7 @@ import { jpgToPngTool } from '../tools/converters/jpg-to-png'
 import { pngToJpgTool } from '../tools/converters/png-to-jpg'
 import { webpToPngTool } from '../tools/converters/webp-to-png'
 import { svgToPngTool } from '../tools/converters/svg-to-png'
+import { gifToPngTool } from '../tools/converters/gif-to-png'
 
 /**
  * Central registry of every tool available on the platform.
@@ -56,6 +57,7 @@ export const tools: ToolDefinition[] = [
   pngToJpgTool,
   webpToPngTool,
   svgToPngTool,
+  gifToPngTool,
 ]
 
 export function getToolBySlug(slug: string) {

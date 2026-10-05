@@ -730,6 +730,62 @@ export const ptPT = {
     howItWorks:
       'Cada SVG é lido como texto e são determinadas as suas medidas (width/height ou viewBox); o tamanho do PNG é calculado mantendo a proporção do original. O SVG é depois desenhado numa imagem isolada do navegador — nunca é inserido na página — e exportado como PNG com fundo transparente. Os ficheiros nunca saem do teu dispositivo e os originais não são alterados. Os ficheiros são convertidos um de cada vez para poupar memória. O ficheiro .zip também é criado no navegador, sem compressão adicional.',
   },
+  gifToPng: {
+    dropTitle: 'Arrasta as imagens GIF para aqui',
+    dropHint: 'ou clica para escolher ficheiros',
+    dropFormats: (maxMb: number, maxFiles: number) =>
+      `Aceita .gif, até ${maxMb} MB por imagem e ${maxFiles} imagens de cada vez.`,
+    animationNote:
+      'Se o GIF for animado, só é convertido o primeiro fotograma: o PNG resultante é uma imagem estática e a animação não é mantida.',
+    transparencyNote:
+      'A transparência do GIF é mantida quando o navegador a consegue ler. O PNG não acrescenta cores nem melhora a qualidade do GIF, e o ficheiro pode ficar maior.',
+    animatedFile: (frames: number) => `GIF animado (${frames} fotogramas): só o primeiro foi convertido.`,
+    animatedSummary: (n: number) =>
+      n === 1
+        ? '1 GIF animado: só foi convertido o primeiro fotograma.'
+        : `${n} GIFs animados: só foi convertido o primeiro fotograma de cada um.`,
+    emptyState: 'Ainda não escolheste nenhuma imagem.',
+    listTitle: (n: number) => (n === 1 ? '1 imagem' : `${n} imagens`),
+    convertButton: (n: number) => (n === 0 ? 'Converter' : n === 1 ? 'Converter 1 imagem' : `Converter ${n} imagens`),
+    converting: 'A converter…',
+    progress: (current: number, total: number) => `A converter a imagem ${current} de ${total}…`,
+    summary: (done: number, failed: number) => {
+      const doneText = done === 1 ? '1 imagem convertida' : `${done} imagens convertidas`
+      if (failed === 0) return `${doneText} com sucesso.`
+      const failedText = failed === 1 ? '1 com erro' : `${failed} com erro`
+      return done === 0 ? `Nenhuma imagem convertida; ${failedText}.` : `${doneText}; ${failedText}.`
+    },
+    readyToConvert: (n: number) => (n === 1 ? '1 imagem pronta a converter.' : `${n} imagens prontas a converter.`),
+    clearSelection: 'Limpar seleção',
+    downloadAll: 'Descarregar tudo (.zip)',
+    zipping: 'A criar o ficheiro .zip…',
+    zipFailed: 'Não foi possível criar o ficheiro .zip.',
+    download: 'Descarregar PNG',
+    downloadFile: (name: string) => `Descarregar PNG: ${name}`,
+    removeFile: (name: string) => `Remover ${name}`,
+    statusPending: 'Pronto a converter',
+    statusConverting: 'A converter…',
+    statusDone: 'Convertido',
+    originalLabel: 'Original',
+    pngLabel: 'PNG',
+    dimensions: (width: number, height: number) => `${width} × ${height} px`,
+    previewAlt: (name: string) => `Pré-visualização de ${name}`,
+    tooManyFiles: (max: number, ignored: number) =>
+      `Só podes ter até ${max} imagens de cada vez. ${ignored === 1 ? '1 ficheiro ficou de fora' : `${ignored} ficheiros ficaram de fora`}.`,
+    errors: {
+      notGif: 'Não é um ficheiro GIF.',
+      empty: 'O ficheiro está vazio.',
+      tooLarge: 'O ficheiro excede o tamanho máximo permitido.',
+      invalidGif: 'O conteúdo do ficheiro não é um GIF válido.',
+      unsupported: 'O teu navegador não suporta esta conversão.',
+      decodeFailed: 'Não foi possível ler a imagem. O ficheiro pode estar corrompido.',
+      tooManyPixels: 'A imagem é demasiado grande para ser convertida no navegador.',
+      conversionFailed: 'A conversão falhou. Tenta novamente ou usa uma imagem mais pequena.',
+    },
+    howItWorksTitle: 'Como funciona',
+    howItWorks:
+      'Cada GIF é verificado e lido no teu navegador, desenhado num canvas transparente e exportado como PNG, com as mesmas dimensões do original. Se o GIF tiver vários fotogramas, só o primeiro é convertido e o resultado é uma imagem estática. Os ficheiros nunca saem do teu dispositivo e os originais não são alterados. As imagens são convertidas uma de cada vez para poupar memória. O ficheiro .zip também é criado no navegador, sem compressão adicional (os PNG já estão comprimidos).',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT
