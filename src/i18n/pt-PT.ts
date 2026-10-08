@@ -786,6 +786,56 @@ export const ptPT = {
     howItWorks:
       'Cada GIF é verificado e lido no teu navegador, desenhado num canvas transparente e exportado como PNG, com as mesmas dimensões do original. Se o GIF tiver vários fotogramas, só o primeiro é convertido e o resultado é uma imagem estática. Os ficheiros nunca saem do teu dispositivo e os originais não são alterados. As imagens são convertidas uma de cada vez para poupar memória. O ficheiro .zip também é criado no navegador, sem compressão adicional (os PNG já estão comprimidos).',
   },
+  imagesToPdf: {
+    dropTitle: 'Arrasta as imagens para aqui',
+    dropHint: 'ou clica para escolher ficheiros',
+    dropFormats: (maxMb: number, maxFiles: number) =>
+      `Aceita JPG, PNG e WebP, até ${maxMb} MB por imagem e ${maxFiles} imagens de cada vez.`,
+    orderNote:
+      'A ordem da lista é a ordem das páginas do PDF. Usa os botões para subir ou descer cada imagem antes de criar o PDF.',
+    pageNote:
+      'Cada imagem fica numa página A4, centrada, inteira e sem deformações; as imagens horizontais usam uma página na horizontal. O PDF não tem transparência: as áreas transparentes de um PNG ou WebP ficam com fundo branco.',
+    emptyState: 'Ainda não escolheste nenhuma imagem.',
+    listTitle: (n: number) => (n === 1 ? '1 imagem' : `${n} imagens`),
+    pageLabel: (n: number) => `Página ${n}`,
+    moveUp: (name: string) => `Subir ${name}`,
+    moveDown: (name: string) => `Descer ${name}`,
+    moved: (name: string, position: number, total: number) => `${name}: página ${position} de ${total}.`,
+    removeFile: (name: string) => `Remover ${name}`,
+    clearSelection: 'Limpar seleção',
+    createButton: 'Criar PDF',
+    creating: 'A criar o PDF…',
+    progress: (current: number, total: number) => `A preparar a imagem ${current} de ${total}…`,
+    pdfReady: (pages: number, size: string) =>
+      `PDF criado com ${pages === 1 ? '1 página' : `${pages} páginas`} (${size}).`,
+    skippedNotice: (n: number) =>
+      n === 1
+        ? '1 imagem com erro não foi incluída no PDF.'
+        : `${n} imagens com erro não foram incluídas no PDF.`,
+    noPages: 'Não há imagens válidas para criar o PDF.',
+    pdfFailed: 'Não foi possível criar o PDF.',
+    downloadPdf: 'Descarregar PDF',
+    statusReady: 'Pronta para o PDF',
+    statusProcessing: 'A preparar…',
+    statusDone: 'Incluída no PDF',
+    dimensions: (width: number, height: number) => `${width} × ${height} px`,
+    previewAlt: (name: string) => `Pré-visualização de ${name}`,
+    tooManyFiles: (max: number, ignored: number) =>
+      `Só podes ter até ${max} imagens de cada vez. ${ignored === 1 ? '1 ficheiro ficou de fora' : `${ignored} ficheiros ficaram de fora`}.`,
+    errors: {
+      unsupported: 'Formato não suportado. Usa JPG, PNG ou WebP.',
+      empty: 'O ficheiro está vazio.',
+      tooLarge: 'O ficheiro excede o tamanho máximo permitido.',
+      invalidImage: 'O conteúdo do ficheiro não é uma imagem JPG, PNG ou WebP válida.',
+      decodeFailed: 'Não foi possível ler a imagem. O ficheiro pode estar corrompido.',
+      tooManyPixels: 'A imagem é demasiado grande para ser processada no navegador.',
+      conversionFailed: 'Não foi possível preparar a imagem para o PDF.',
+      browserUnsupported: 'O teu navegador não suporta esta operação.',
+    },
+    howItWorksTitle: 'Como funciona',
+    howItWorks:
+      'Cada imagem é lida e desenhada no teu navegador sobre um fundo branco (as imagens muito grandes são reduzidas para um máximo de 3508 px no lado maior) e colocada numa página A4, centrada e mantendo a proporção, sem cortes. As páginas seguem a ordem da lista. Os ficheiros nunca saem do teu dispositivo e os originais não são alterados. Se alterares a lista ou a ordem, cria o PDF de novo.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT
