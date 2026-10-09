@@ -836,6 +836,72 @@ export const ptPT = {
     howItWorks:
       'Cada imagem é lida e desenhada no teu navegador sobre um fundo branco (as imagens muito grandes são reduzidas para um máximo de 3508 px no lado maior) e colocada numa página A4, centrada e mantendo a proporção, sem cortes. As páginas seguem a ordem da lista. Os ficheiros nunca saem do teu dispositivo e os originais não são alterados. Se alterares a lista ou a ordem, cria o PDF de novo.',
   },
+  pdfToJpg: {
+    dropTitle: 'Arrasta o ficheiro PDF para aqui',
+    dropHint: 'ou clica para escolher um ficheiro',
+    dropFormats: (maxMb: number, maxPages: number) =>
+      `Aceita um PDF de cada vez, até ${maxMb} MB e ${maxPages} páginas.`,
+    onlyOneFile: (ignored: number) =>
+      `Só é possível converter um PDF de cada vez: foi usado o primeiro e ${ignored === 1 ? '1 ficheiro ficou de fora' : `${ignored} ficheiros ficaram de fora`}.`,
+    emptyState: 'Ainda não escolheste nenhum PDF.',
+    sizeLabel: 'Tamanho',
+    pageCount: (n: number) => (n === 1 ? '1 página' : `${n} páginas`),
+    statusChecking: 'A ler o PDF…',
+    statusReady: 'Pronto a converter',
+    removeFile: (name: string) => `Remover ${name}`,
+    clearSelection: 'Remover PDF',
+    resolutionLabel: 'Resolução das imagens',
+    resolutionOptions: {
+      low: 'Baixa — 100 DPI',
+      normal: 'Normal — 150 DPI (recomendado)',
+      high: 'Alta — 200 DPI',
+    },
+    resolutionHint:
+      'Quanto mais alta, mais nítidas ficam as imagens e maiores são os ficheiros. Páginas muito grandes (como cartazes) são reduzidas automaticamente para caberem nos limites do navegador. A resolução aplica-se às conversões seguintes.',
+    pageNote:
+      'Cada página do PDF passa a ser uma imagem JPG separada. O JPG não suporta transparência: as áreas transparentes ficam com fundo branco. O texto e os desenhos passam a ser píxeis, por isso o texto deixa de ser selecionável.',
+    convertButton: 'Converter para JPG',
+    convertAgain: 'Converter de novo',
+    converting: 'A converter…',
+    preparing: 'A preparar o conversor de PDF…',
+    progress: (current: number, total: number) => `A converter a página ${current} de ${total}…`,
+    result: (pages: number, dpi: number) =>
+      `${pages === 1 ? '1 página convertida' : `${pages} páginas convertidas`} a ${dpi} DPI.`,
+    resultOutdated: (resultDpi: number, selectedDpi: number) =>
+      `As imagens atuais foram criadas a ${resultDpi} DPI. Converte de novo para usar ${selectedDpi} DPI.`,
+    downloadJpg: 'Descarregar JPG',
+    downloadZip: 'Descarregar tudo (.zip)',
+    zipping: 'A criar o ficheiro .zip…',
+    zipFailed: 'Não foi possível criar o ficheiro .zip.',
+    downloadPage: (name: string) => `Descarregar JPG: ${name}`,
+    download: 'Descarregar',
+    listTitle: (n: number) => (n === 1 ? '1 imagem' : `${n} imagens`),
+    pageLabel: (n: number) => `Página ${n}`,
+    previewAlt: (page: number) => `Pré-visualização da página ${page}`,
+    dimensions: (width: number, height: number) => `${width} × ${height} px`,
+    tooManyPages: (max: number) =>
+      `O PDF tem demasiadas páginas: o máximo é ${max}. Divide-o em partes mais pequenas e converte cada parte.`,
+    pageFailed: (page: number, reason: string) => `Não foi possível converter a página ${page}. ${reason}`,
+    errors: {
+      notPdf: 'Não é um ficheiro PDF.',
+      empty: 'O ficheiro está vazio.',
+      tooLarge: 'O ficheiro excede o tamanho máximo permitido.',
+      invalidPdf: 'O conteúdo do ficheiro não é um PDF válido. Pode estar corrompido.',
+      encrypted:
+        'Este PDF está protegido por palavra-passe e não pode ser convertido. Remove a proteção e tenta novamente.',
+      noPages: 'O PDF não tem páginas para converter.',
+      loadFailed:
+        'Não foi possível abrir o PDF. O ficheiro pode estar corrompido ou usar funcionalidades não suportadas.',
+      libraryFailed:
+        'Não foi possível carregar o conversor de PDF. Verifica a ligação à internet e tenta novamente.',
+      renderFailed:
+        'A página não pôde ser desenhada. O PDF pode estar corrompido ou usar funcionalidades não suportadas.',
+      conversionFailed: 'A conversão falhou. Tenta uma resolução mais baixa ou outro PDF.',
+    },
+    howItWorksTitle: 'Como funciona',
+    howItWorks:
+      'O PDF é aberto no teu navegador com a biblioteca PDF.js e cada página é desenhada num canvas com fundo branco e exportada como JPG (qualidade fixa de 92%), uma de cada vez para poupar memória. Os ficheiros nunca saem do teu dispositivo e o original não é alterado. As imagens têm o nome do PDF e o número da página (por exemplo, documento-pagina-1.jpg); com várias páginas, o descarregamento é um ficheiro .zip criado no próprio navegador, sem compressão adicional. PDFs protegidos por palavra-passe não são suportados e, se um PDF usar tipos de letra que não estão incorporados, o navegador pode substituí-los por tipos de letra semelhantes. Requer um navegador recente.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT

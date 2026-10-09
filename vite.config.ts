@@ -12,4 +12,17 @@ export default defineConfig(({ mode }) => ({
   // command ('serve'), so it was serving the /NotaLab/-prefixed build output
   // as if it lived at the root, and every asset 404'd.
   base: mode === 'production' ? '/NotaLab/' : '/',
+  build: {
+    rollupOptions: {
+      output: {
+        // PDF.js (PDF para JPG) looks for its WebAssembly decoders (JPEG 2000, JBIG2, colour
+        // profiles) by their original file names inside one folder, so these three files are
+        // emitted without a content hash. Everything else keeps the default hashed names.
+        assetFileNames: (asset) =>
+          asset.names.some((name) => /^(openjpeg|jbig2|qcms_bg)\.wasm$/.test(name))
+            ? 'assets/pdfjs/[name][extname]'
+            : 'assets/[name]-[hash][extname]',
+      },
+    },
+  },
 }))

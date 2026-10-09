@@ -24,7 +24,7 @@ export const imagesToPdfTool: ToolDefinition = {
       'a4',
       'sem upload',
     ],
-    relatedSlugs: ['jpg-para-png', 'png-para-jpg', 'webp-para-png'],
+    relatedSlugs: ['pdf-para-jpg', 'jpg-para-png', 'png-para-jpg', 'webp-para-png'],
   },
   Component: ImagesToPdfTool,
 }
