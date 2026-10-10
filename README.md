@@ -2,7 +2,7 @@
 
 Ferramentas simples para estudantes — calculadoras académicas, utilitários de estudo e conversores de ficheiros, gratuitos e sem necessidade de conta.
 
-> **Estado atual:** arquitetura, design system, homepage e diretório de ferramentas implementados. Ferramentas disponíveis: calculadora de média ponderada, "que nota preciso?", calculadora de média da licenciatura, contador de palavras e caracteres, temporizador Pomodoro, conversor de unidades, conversor de notas, planeador de sessões de estudo, contador para o exame, gerador de referências APA 7, calculadora científica, calculadora de percentagens, calculadora de juros, calculadora de regra de três, calculadora de diferença de datas, calculadora de descontos, calculadora de média por ECTS, calculadora de IVA, calculadora de salário líquido, calculadora de juros compostos, simulador de crédito, conversor de JPG para PNG, conversor de PNG para JPG, conversor de WebP para PNG, conversor de SVG para PNG, conversor de GIF para PNG, conversor de imagens para PDF e conversor de PDF para JPG.
+> **Estado atual:** arquitetura, design system, homepage e diretório de ferramentas implementados. Ferramentas disponíveis: calculadora de média ponderada, "que nota preciso?", calculadora de média da licenciatura, contador de palavras e caracteres, temporizador Pomodoro, conversor de unidades, conversor de notas, planeador de sessões de estudo, contador para o exame, gerador de referências APA 7, calculadora científica, calculadora de percentagens, calculadora de juros, calculadora de regra de três, calculadora de diferença de datas, calculadora de descontos, calculadora de média por ECTS, calculadora de IVA, calculadora de salário líquido, calculadora de juros compostos, simulador de crédito, conversor de JPG para PNG, conversor de PNG para JPG, conversor de WebP para PNG, conversor de SVG para PNG, conversor de GIF para PNG, conversor de imagens para PDF, conversor de PDF para JPG e conversor de JPG para WebP.
 
 ## Stack
 
@@ -65,6 +65,13 @@ A ferramenta `pdf-para-jpg` (categoria `ficheiros`) converte cada página de um 
 - **Biblioteca:** [PDF.js](https://github.com/mozilla/pdf.js) (`pdfjs-dist`, licença Apache-2.0), carregada com `import()` dinâmico, por isso não pesa no bundle inicial.
 - **Worker e decoders:** o worker e os três decoders WebAssembly (`openjpeg.wasm`, `jbig2.wasm`, `qcms_bg.wasm`) são importados com `?url`. O PDF.js procura os decoders pelo nome do ficheiro, todos na mesma pasta, por isso o `vite.config.ts` emite-os sem hash em `assets/pdfjs/`. Sem eles, páginas digitalizadas que usam JPEG 2000 ou JBIG2 saem em branco. Ao atualizar o `pdfjs-dist`, confirma que estes ficheiros continuam a existir.
 - **Limitações:** PDFs com palavra-passe não são suportados; tipos de letra não incorporados no PDF podem ser substituídos por outros do sistema. A dependência opcional `@napi-rs/canvas` do `pdfjs-dist` é só para Node e não é usada no navegador.
+
+## JPG para WebP
+
+A ferramenta `jpg-para-webp` (categoria `ficheiros`) converte imagens JPG/JPEG para WebP, tudo no navegador, com as mesmas dimensões do original e qualidade à escolha (85% por omissão).
+
+- **Reutiliza** a validação e os limites do conversor de JPG para PNG (20 MB por imagem, 50 imagens), o escritor de ZIP e a lista de nomes únicos dos outros conversores. Nome de saída: `foto.jpg` → `foto.webp`; com várias imagens, o `.zip` chama-se `imagens-webp.zip`.
+- **Codificação:** `canvas.toBlob('image/webp')`. Um navegador que não sabe codificar WebP devolve um PNG em silêncio; a ferramenta deteta-o pelo tipo do resultado e mostra um erro em vez de entregar um PNG com extensão `.webp`.
 
 ## Como adicionar uma ferramenta
 

@@ -902,6 +902,66 @@ export const ptPT = {
     howItWorks:
       'O PDF é aberto no teu navegador com a biblioteca PDF.js e cada página é desenhada num canvas com fundo branco e exportada como JPG (qualidade fixa de 92%), uma de cada vez para poupar memória. Os ficheiros nunca saem do teu dispositivo e o original não é alterado. As imagens têm o nome do PDF e o número da página (por exemplo, documento-pagina-1.jpg); com várias páginas, o descarregamento é um ficheiro .zip criado no próprio navegador, sem compressão adicional. PDFs protegidos por palavra-passe não são suportados e, se um PDF usar tipos de letra que não estão incorporados, o navegador pode substituí-los por tipos de letra semelhantes. Requer um navegador recente.',
   },
+  jpgToWebp: {
+    dropTitle: 'Arrasta as imagens JPG para aqui',
+    dropHint: 'ou clica para escolher ficheiros',
+    dropFormats: (maxMb: number, maxFiles: number) =>
+      `Aceita .jpg e .jpeg, até ${maxMb} MB por imagem e ${maxFiles} imagens de cada vez.`,
+    formatNote:
+      'O WebP costuma ocupar menos espaço do que o JPG com qualidade semelhante, mas alguns programas e sites mais antigos não o abrem. O JPG original já foi comprimido com perdas, por isso a conversão não melhora a imagem, e converter de novo a partir do resultado volta a perder qualidade.',
+    qualityLabel: 'Qualidade do WebP',
+    qualityValue: (quality: number) => `${quality}%`,
+    qualityHint:
+      'Quanto mais alta, melhor a imagem e maior o ficheiro. 85% é um bom equilíbrio. A qualidade aplica-se às conversões seguintes.',
+    rowQuality: (quality: number) => `Qualidade ${quality}%`,
+    qualityMismatch: (n: number, quality: number) =>
+      n === 1
+        ? `1 imagem foi convertida com outra qualidade. Podes convertê-la de novo com ${quality}%.`
+        : `${n} imagens foram convertidas com outra qualidade. Podes convertê-las de novo com ${quality}%.`,
+    reconvert: (quality: number) => `Converter de novo com ${quality}%`,
+    emptyState: 'Ainda não escolheste nenhuma imagem.',
+    listTitle: (n: number) => (n === 1 ? '1 imagem' : `${n} imagens`),
+    convertButton: (n: number) => (n === 0 ? 'Converter' : n === 1 ? 'Converter 1 imagem' : `Converter ${n} imagens`),
+    converting: 'A converter…',
+    progress: (current: number, total: number) => `A converter a imagem ${current} de ${total}…`,
+    summary: (done: number, failed: number) => {
+      const doneText = done === 1 ? '1 imagem convertida' : `${done} imagens convertidas`
+      if (failed === 0) return `${doneText} com sucesso.`
+      const failedText = failed === 1 ? '1 com erro' : `${failed} com erro`
+      return done === 0 ? `Nenhuma imagem convertida; ${failedText}.` : `${doneText}; ${failedText}.`
+    },
+    readyToConvert: (n: number) => (n === 1 ? '1 imagem pronta a converter.' : `${n} imagens prontas a converter.`),
+    clearSelection: 'Limpar seleção',
+    downloadAll: 'Descarregar tudo (.zip)',
+    zipping: 'A criar o ficheiro .zip…',
+    zipFailed: 'Não foi possível criar o ficheiro .zip.',
+    download: 'Descarregar WebP',
+    downloadFile: (name: string) => `Descarregar WebP: ${name}`,
+    removeFile: (name: string) => `Remover ${name}`,
+    statusPending: 'Pronto a converter',
+    statusConverting: 'A converter…',
+    statusDone: 'Convertido',
+    originalLabel: 'Original',
+    outputLabel: 'WebP',
+    dimensions: (width: number, height: number) => `${width} × ${height} px`,
+    previewAlt: (name: string) => `Pré-visualização de ${name}`,
+    tooManyFiles: (max: number, ignored: number) =>
+      `Só podes ter até ${max} imagens de cada vez. ${ignored === 1 ? '1 ficheiro ficou de fora' : `${ignored} ficheiros ficaram de fora`}.`,
+    errors: {
+      notJpeg: 'Não é um ficheiro JPG/JPEG.',
+      empty: 'O ficheiro está vazio.',
+      tooLarge: 'O ficheiro excede o tamanho máximo permitido.',
+      unsupported: 'O teu navegador não suporta esta conversão.',
+      decodeFailed: 'Não foi possível ler a imagem. O ficheiro pode estar corrompido.',
+      tooManyPixels: 'A imagem é demasiado grande para ser convertida no navegador.',
+      conversionFailed: 'A conversão falhou. Tenta novamente ou usa uma imagem mais pequena.',
+      webpUnsupported:
+        'O teu navegador não consegue criar imagens WebP. Experimenta outro navegador, como o Chrome, o Edge ou o Firefox.',
+    },
+    howItWorksTitle: 'Como funciona',
+    howItWorks:
+      'Cada imagem é lida e desenhada num canvas no teu navegador e exportada como WebP com a qualidade que escolheres, mantendo as dimensões e a proporção do original. Os ficheiros nunca saem do teu dispositivo e os originais não são alterados. As imagens são convertidas uma de cada vez para poupar memória. O ficheiro .zip também é criado no navegador, sem compressão adicional. Requer um navegador recente que consiga criar imagens WebP.',
+  },
 } as const
 
 export type TranslationDict = typeof ptPT
